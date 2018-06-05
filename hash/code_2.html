@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">    
+    <title>IFE ECMAScript</title>
+</head>
+<body> 
+        <button id="a">A</button>
+        <button id="b">B</button>
+        <button id="c">C</button>
+        
+        <button id="d">D</button>
+        <button id="e">E</button>
+        <button id="f">F</button>
+        
+        
+        <div id="contABC"></div>
+        <div id="contDEF"></div>
+<script>
+    var div1=document.getElementById("contABC");
+        div2=document.getElementById("contDEF");
+        btn=document.getElementsByTagName("button");
+    for(let i=0;i<btn.length;i++){
+        btn[i].onclick=function(ev){
+            window.location.hash+="/"+ev.target.innerHTML;
+        }
+    }
+
+    function getHash(){
+        return window.location.hash.split("/");
+    }
+
+    function render(){
+        let data=getHash();
+            arr1=[];
+            arr2=[];
+        data.shift();
+        for(let i=0;i<data.length;i++){
+           if(["A","B","C"].indexOf(data[i])!=-1){
+               arr1.push(data[i]);
+           }else  if(["D","E","F"].indexOf(data[i])!=-1){
+               arr2.push(data[i]);
+           }
+        }
+        div1.innerHTML=arr1.join(" ");
+        div2.innerHTML=arr2.join(" ");
+    }
+    window.onload=function(){
+        render();
+    }
+    window.onhashchange=function(){
+        render();
+    }
+</script>
+</body>
+</html>

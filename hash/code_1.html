@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">    
+    <title>IFE ECMAScript</title>
+</head>
+<body> 
+    <button id="a">A</button>
+    <button id="b">B</button>
+    <button id="c">C</button>
+    <div id="cont"></div>
+<script>
+    var div=document.getElementById("cont");
+        btn=document.getElementsByTagName("button");
+    for(let i=0;i<btn.length;i++){
+        btn[i].onclick=function(ev){
+            window.location.hash=window.location.hash+"/"+ev.target.innerHTML;
+        }
+    }
+
+    function getHash(){
+        return window.location.hash.split("/");
+    }
+
+    function render(){
+        let data=getHash();
+        data.shift();
+        div.innerHTML=data.join(" ");
+    }
+    window.onload=function(){
+        render();
+    }
+    window.onhashchange=function(){
+        render();
+    }
+</script>
+</body>
+</html>
