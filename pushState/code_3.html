@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">    
+    <title>IFE ECMAScript</title>
+    <style>
+    #table-wrapper th,#table-wrapper td{
+        text-align: center;
+        width: 80px;
+        height: 40px;
+        background-color: #27f;
+        position: relative; 
+    }
+    #table-wrapper .saleNum:hover::after{
+        content: "";
+        position:absolute;
+        top:10px;
+        right: 5px;
+        width: 20px;
+        height: 20px;
+        background-image: url(图层4.png);
+    }
+    #table-wrapper input,#table-wrapper button{
+        border: none;
+        background-color:rgba(0,0,0,0);
+    }
+    table{
+        margin-top:20px;
+    }
+    #svg-wrapper{
+        float: left;
+    }
+    #atx-wrapper{
+        float: right;
+    }
+    </style>
+</head>
+<body> 
+    <div id="region-radio-wrapper"><span>地区：</span></div>
+    <div id="product-radio-wrapper"><span>商品：</span></div>
+    <div id="svg-wrapper">
+            <svg id="s1"></svg>
+    </div>
+    <div id="ctx-wrapper">
+        <canvas id="s2"></canvas>
+    </div>
+    <div id="table-wrapper">
+    </div>
+    <button id="save-data">保存</button>
+
+
+
+
+    <script src="js/app.js"></script>
+    <script src="js/checkbox.js"></script>
+    <script src="js/table.js"></script>
+    <script src="js/bar.js"></script>
+    <script src="js/line.js"></script>
+
+</body>
+</html>
